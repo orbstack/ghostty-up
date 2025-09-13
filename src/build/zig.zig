@@ -10,8 +10,8 @@ pub fn requireZig(comptime required_zig: []const u8) void {
         current_vsn.minor != required_vsn.minor)
     {
         @compileError(std.fmt.comptimePrint(
-            "Your Zig version v{} does not meet the required build version of v{}",
-            .{ current_vsn, required_vsn },
+            "Your Zig version {s} does not meet the required build version of {s}",
+            .{ builtin.zig_version_string, required_zig },
         ));
     }
 }
